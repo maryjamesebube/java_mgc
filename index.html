@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business Profit/Loss Calculator</title>
+</head>
+<body>
+    <h1>Business Profit/Loss Calculator</h1>
+    
+    <form id="calculator-form">
+        <label for="income">Income:</label>
+        <input type="number" id="income" name="income" required><br><br>
+        
+        <label for="expenses">Expenses:</label>
+        <input type="number" id="expenses" name="expenses" required><br><br>
+        
+        <button type="button" onclick="calculateProfitLoss()">Calculate</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        function calculateProfitLoss() {
+            var income = parseFloat(document.getElementById("income").value);
+            var expenses = parseFloat(document.getElementById("expenses").value);
+            var margin = income - expenses;
+            var resultElement = document.getElementById("result");
+            
+            var message = "Profit/Loss: N";
+            if (margin > 0) {
+                message += margin + " is the Profit";
+            } else if (margin < 0) {
+                message += -margin + " is the Loss";
+            } else {
+                message += "0 (Break Even)";
+            }
+            
+            resultElement.textContent = message;
+        }
+    </script>
+</body>
+</html>
